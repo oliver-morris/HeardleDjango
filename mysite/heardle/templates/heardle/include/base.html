@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{%static 'css/stylesheet.css' %}">
+</head>
+<body>
+    <div id="background">
+        <ul class="navbar">
+            <li><a href="/">home</a></li>
+            <li><a href="/heardle?artist=taylor%20swift">swiftle</a></li>
+        </ul>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

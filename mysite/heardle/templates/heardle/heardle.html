@@ -1,0 +1,29 @@
+{% extends 'heardle/include/base.html' %}
+{% load static %}
+
+{% block content %}
+{% block audio %}
+{% endblock audio %}
+
+<script>const data = JSON.parse("{{data|escapejs}}");</script>
+<script src="{%static 'js/heardle.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{%static 'css/heardle.css' %}">
+
+<p class="lyrics" id="lyric1"></p>
+<p class="lyrics" id="lyric2"></p>
+<p class="lyrics" id="lyric3"></p>
+<p class="lyrics" id="lyric4"></p>
+<p class="lyrics" id="lyric5"></p>
+<p class="lyrics" id="lyric6"></p>
+<input type="text" placeholder="Enter Song Title..." id="myInput" onkeyup="filterFunction(event)">
+<div id="myDropdown" class="dropdown-content"></div>
+<div class="button" id="submit" onclick="submit()">SUBMIT</div>
+<div class="button" id="skip" onclick="skip()">SKIP</div>
+<p id="myRecord">🔊</p>
+<div class="level-end">
+    <div id="level-completed"></div>
+</div>
+
+<div class="button" id="play" onclick="playSound()">▶</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'heardle/heardle.html' %}
+{% load static %}
+{% block audio %}
+
+<audio id="audio0" controls hidden>
+    <source id="audio0src" src="{%static 'audios\\Ed_Sheeran_6eUKZXaKkcviH0Ku9w2n3V\\clip1.mp4' %}" type="audio/mpeg">
+</audio>
+<audio id="audio1" controls hidden>
+    <source id="audio1src" src="{%static 'audios\\Ed_Sheeran_6eUKZXaKkcviH0Ku9w2n3V\\clip2.mp4' %}" type="audio/mpeg">
+</audio>
+<audio id="audio2" controls hidden>
+    <source id="audio2src" src="{%static 'audios\\Ed_Sheeran_6eUKZXaKkcviH0Ku9w2n3V\\clip3.mp4' %}" type="audio/mpeg">
+</audio>
+<audio id="audio3" controls hidden>
+    <source id="audio3src" src="{%static 'audios\\Ed_Sheeran_6eUKZXaKkcviH0Ku9w2n3V\\clip4.mp4' %}" type="audio/mpeg">
+</audio>
+<audio id="audio4" controls hidden>
+    <source id="audio4src" src="{%static 'audios\\Ed_Sheeran_6eUKZXaKkcviH0Ku9w2n3V\\clip5.mp4' %}" type="audio/mpeg">
+</audio>
+<audio id="audio5" controls hidden>
+    <source id="audio5src" src="{%static 'audios\\Ed_Sheeran_6eUKZXaKkcviH0Ku9w2n3V\\clip6.mp4' %}" type="audio/mpeg">
+</audio>
+
+{% endblock %}

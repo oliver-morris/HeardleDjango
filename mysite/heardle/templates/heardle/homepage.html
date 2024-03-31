@@ -1,0 +1,18 @@
+{% extends 'heardle/include/base.html' %}
+{% load static %}
+
+{% block content %}
+<script src="{%static 'js/homepage.js' %}"></script>
+
+<div>
+    <div class="homepage-title-container">
+        <h1 class="homepage-title">Heardle</h1>
+        <p class="homepage-description">Heardle for all of your favourite artists!<br>Currently under development so only using a select few artists<br>Taylor Swift, Ed Sheeran and Noah Kahan</p>
+    </div>
+    <div class="input-bar">
+        <input type="text" placeholder="enter an artist..." class="homepage-input" onkeyup="searchFunction(event)">
+        <div class="button" id="submit-homepage" onclick="submit()">submit</div>
+    </div>
+</div>
+
+{% endblock %}
