@@ -3,13 +3,15 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404, render
 from django.shortcuts import redirect
 from django.utils.safestring import SafeString
+from django.conf import settings
 import json
 
 from .maintenance import fixFiles
 from .Heardle import Heardle
 from .Spotify import Spotify
 
-
+client_id = settings.CLIENT_ID
+client_secret = settings.CLIENT_SECRET
 spotify = Spotify(client_id, client_secret)
 
 def heardle(request):
@@ -42,6 +44,7 @@ def heardle(request):
         'tracks': tracks,
     }
     context = json.dumps(context)
+    print(clips)
     if "Taylor_Swift_06HL4z0CvFAxyc27GXpf02" in clips[0]:
         return render(request, "heardle/heardle_people/swiftle.html", {'data': SafeString(context)})
     elif "Ed_Sheeran_6eUKZXaKkcviH0Ku9w2n3V" in clips[0]:

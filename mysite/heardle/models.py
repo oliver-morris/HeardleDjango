@@ -1,13 +1,17 @@
 from django.db import models
 
-class User(models.Model):
-    username = models.CharField(max_length=100, unique=True)
-    first_name = models.CharField(max_length=100)
-    last_name= models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
-    userType = models.CharField(max_length=25,default="user")
-    score = models.IntegerField(default=0)
-    streak = models.IntegerField(default=0)
+class DailySong(models.Model):
+    artist_name = models.CharField(max_length=100)
+    artist_id = models.CharField(max_length=100)
+    song_name = models.CharField(max_length=100)
+    file_name = models.CharField(max_length=100)
+    date = models.DateField()
+    clip1 = models.FileField(upload_to="video/%y")
+    clip2 = models.FileField(upload_to="video/%y")
+    clip3 = models.FileField(upload_to="video/%y")
+    clip4 = models.FileField(upload_to="video/%y")
+    clip5 = models.FileField(upload_to="video/%y")
+    clip6 = models.FileField(upload_to="video/%y")
     
 
 
