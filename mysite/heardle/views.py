@@ -37,6 +37,14 @@ def heardle(request):
         clips = h.clips
         tracks = h.getCustomTracks()
     fixFiles()
+    clips2 = []
+    for clip in clips:
+        if "static\\audios" not in clip:
+            clips2.append("static\\audios" + clip)
+        else:
+            break
+    if clips2:
+        clips = clips2
     context = {
         'artist': artist_name,
         'song': answer,
@@ -45,15 +53,7 @@ def heardle(request):
     }
     context = json.dumps(context)
     print(clips)
-    if "Taylor_Swift_06HL4z0CvFAxyc27GXpf02" in clips[0]:
-        return render(request, "heardle/heardle_people/swiftle.html", {'data': SafeString(context)})
-    elif "Ed_Sheeran_6eUKZXaKkcviH0Ku9w2n3V" in clips[0]:
-        return render(request, "heardle/heardle_people/ed_sheeran.html", {'data': SafeString(context)})
-    elif "Noah_Kahan_2RQXRUsr4IW1f3mKyKsy4B" in clips[0]:
-        return render(request, "heardle/heardle_people/noah_kahan.html", {'data': SafeString(context)})
-    else:
-        return render(request, "heardle/homepage.html")
-    #return render(request, "heardle/heardle.html", {'data': SafeString(context)})
+    return render(request, "heardle/heardle.html", {'data': SafeString(context)})
 
 def homepage(request):
     return render(request, "heardle/homepage.html")

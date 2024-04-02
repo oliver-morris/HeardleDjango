@@ -4,12 +4,11 @@ function playSound() {
     if (number > 5) {
         number = 5;
     }
-    document.getElementById(`audio${number}`).play();
-    //var clip = `{% static '${clips[number]}' %}`;
-    //console.log(clip);
+    //document.getElementById(`audio${number}`).play();
+    var clip = '../' + clips[number];
     //clip = decodeURIComponent(clip);
-    //var audio = new Audio(clip);
-    //audio.play();
+    var audio = new Audio(clip);
+    audio.play();
 }
 
 function filterFunction(e) {
@@ -196,10 +195,5 @@ function playAgain() {
 const song = data["song"]
 const tracks = data["tracks"]
 const clips = data["clips"]
-console.log(clips);
 const artist = data["artist"]
 
-//var src;
-//src = `{% static '${clips[0]}' %}`;
-//document.getElementById("audio0src").src = src;
-//console.log(document.getElementById("audio0src"));

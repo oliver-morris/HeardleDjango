@@ -26,6 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'capital-leading-crappie.ngrok-free.app',
     '6fee-5-151-189-5.ngrok-free.app',
     'b807-5-151-189-4.ngrok-free.app',
     '127.0.0.1',

@@ -2,8 +2,6 @@
 {% load static %}
 
 {% block content %}
-{% block audio %}
-{% endblock audio %}
 
 <script>const data = JSON.parse("{{data|escapejs}}");</script>
 <script src="{%static 'js/heardle.js' %}"></script>
