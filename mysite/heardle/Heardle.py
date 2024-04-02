@@ -28,7 +28,7 @@ class Heardle:
             if self.checkDate():
                 return
         else:
-            self.file_name = "\\custom\\" + custom_id + "\\"
+            self.file_name = "/custom/" + custom_id + "/"
         if not song:
             self.song = self.pickSong()
         else:
@@ -61,7 +61,7 @@ class Heardle:
         return file_name
 
     def downloadSong(self):
-        if "\\custom\\" not in self.file_name:
+        if "/custom/" not in self.file_name:
             artist_name_string = self.artist.artist_name
             answer = self.song
             youtube_search_query = artist_name_string + " " + answer + " lyric video"
@@ -86,20 +86,20 @@ class Heardle:
 
             yt.streams.filter(progressive=True,
                                   file_extension="mp4").first().download(
-                    output_path=f"{self.file_path}\\{file_name}",
+                    output_path=f"{self.file_path}/{file_name}",
                     filename="full_audio.mp4")
-            return f"{self.file_path}\\{file_name}" + "full_audio.mp4"
+            return f"{self.file_path}/{file_name}" + "full_audio.mp4"
 
 
     def cutClip(self):
-        audio_path = f"{self.file_path}\\{self.file_name}\\full_audio.mp4"
+        audio_path = f"{self.file_path}/{self.file_name}/full_audio.mp4"
         clip = editor.AudioFileClip(audio_path)
         if clip.duration < 60 + 7 * self.clip_length:
             print("Video not long enough!")
             return
         start = random.randint(30, math.floor(clip.duration - 30 - (7*self.clip_length)))
         end = start + 7*self.clip_length
-        audio_path_2 = f"{self.file_path}\\{self.file_name}\\full_audio2.mp4"
+        audio_path_2 = f"{self.file_path}/{self.file_name}/full_audio2.mp4"
         ffmpeg_extract_subclip(audio_path, start, end, targetname=audio_path_2)
         return audio_path_2
 
@@ -110,7 +110,7 @@ class Heardle:
         for i in range(6):
             end = (i+1) * self.clip_length
             print(self.file_name)
-            clip_path = f"\\{self.file_name}\\clip{str(i+1)}.mp4"
+            clip_path = f"/{self.file_name}/clip{str(i+1)}.mp4"
             ffmpeg_extract_subclip(audio_path, 0, end, targetname=self.file_path+clip_path)
             clips.append(clip_path)
         return clips
@@ -132,7 +132,7 @@ class Heardle:
         videoclip.write_videofile(final_path, temp_audiofile=video_path)
 
     def getCustomTracks(self):
-        with open(f"{self.file_path}\\{self.file_name}tracks.txt", "r") as f:
+        with open(f"{self.file_path}/{self.file_name}tracks.txt", "r") as f:
             file = f.read()
         return file.split("\n")
 

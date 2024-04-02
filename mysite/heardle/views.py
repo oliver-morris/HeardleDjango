@@ -39,8 +39,8 @@ def heardle(request):
     fixFiles()
     clips2 = []
     for clip in clips:
-        if "static\\audios" not in clip:
-            clips2.append("static\\audios" + clip)
+        if "static" not in clip:
+            clips2.append("static/audios" + clip)
         else:
             break
     if clips2:
